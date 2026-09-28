@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Account</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    background: #f4f7fb;
+    color: #172033;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+
+header {
+    height: 72px;
+    background: #ffffff;
+    border-bottom: 1px solid #e7ebf2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.logo {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background: #155eef;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.help {
+    color: #667085;
+    font-size: 14px;
+}
+
+/* Main */
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 45px 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border: 1px solid #e4e7ec;
+    border-radius: 16px;
+    padding: 38px;
+    box-shadow: 0 15px 40px rgba(16, 24, 40, 0.08);
+}
+
+.lock {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #eef4ff;
+    color: #155eef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 9px;
+    letter-spacing: -0.4px;
+}
+
+.subtitle {
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* Form */
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #344054;
+}
+
+.field {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+}
+
+input:focus {
+    border-color: #155eef;
+    box-shadow: 0 0 0 3px rgba(21, 94, 239, 0.10);
+}
+
+.password {
+    padding-right: 48px;
+}
+
+.show {
+    position: absolute;
+    right: 14px;
+    top: 36px;
+    color: #667085;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* Options */
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -2px 0 24px;
+    font-size: 13px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #667085;
+}
+
+.remember input {
+    width: 15px;
+    height: 15px;
+}
+
+.forgot {
+    color: #155eef;
+    text-decoration: none;
+}
+
+/* Button */
+
+button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: #155eef;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #004eeb;
+}
+
+button:active {
+    transform: scale(0.99);
+}
+
+/* Security */
+
+.security {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 22px;
+    color: #667085;
+    font-size: 12px;
+}
+
+/* Result */
+
+.result {
+    display: none;
+    text-align: center;
+}
+
+.result-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ecfdf3;
+    color: #039855;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 25px;
+}
+
+.result h2 {
+    margin-bottom: 10px;
+}
+
+.result p {
+    color: #667085;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 22px;
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+/* Mobile */
+
+@media (max-width: 520px) {
+
+    header {
+        padding: 0 20px;
+    }
+
+    .help {
+        display: none;
+    }
+
+    .card {
+        padding: 28px 22px;
+        border-radius: 13px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+        <div class="logo">◆</div>
+        SecurePortal
+    </div>
+
+    <div class="help">
+        Need help?
+    </div>
+
+</header>
+
+
+<main>
+
+    <div class="card">
+
+        <div id="login">
+
+            <div class="lock">🔒</div>
+
+            <h1>Welcome back</h1>
+
+            <p class="subtitle">
+                Sign in to your account to continue.
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="field">
+
+                    <label>Email address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                        autocomplete="off"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="password"
+                        placeholder="Enter your password"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <span class="show" onclick="togglePassword()">
+                        Show
+                    </span>
+
+                </div>
+
+
+                <div class="options">
+
+                    <label class="remember">
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+
+                    <a href="#" class="forgot"
+                       onclick="return false;">
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <button type="submit">
+                    Sign in
+                </button>
+
+            </form>
+
+
+            <div class="security">
+                🔒 Secure sign-in
+            </div>
+
+        </div>
+
+
+        <div class="result" id="result">
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <h2>Verification complete</h2>
+
+            <p>
+                Your request has been processed successfully.
+            </p>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+    © 2026 SecurePortal. All rights reserved.
+</footer>
+
+
+<script>
+
+function togglePassword() {
+
+    const password =
+        document.getElementById("password");
+
+    const show =
+        document.querySelector(".show");
+
+    if (password.type === "password") {
+
+        password.type = "text";
+        show.textContent = "Hide";
+
+    } else {
+
+        password.type = "password";
+        show.textContent = "Show";
+
+    }
+
+}
+
+
+document
+.getElementById("loginForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    /*
+       Nothing entered into the form is sent anywhere.
+       This is intentionally a local demonstration.
+    */
+
+    document.getElementById("login").style.display = "none";
+
+    document.getElementById("result").style.display = "block";
+
+});
+
+</script>
+
+</body>
+</html>
